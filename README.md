@@ -12,7 +12,7 @@ Provide the configuration in the below image.
 
 ---
 ### 3. Update build.gradle
-####3-1. Adjust the dependencies block to make it more clear and readable
+#### 3-1. Adjust the dependencies block to make it more clear and readable
 ```groovy
 dependencies {
     // spring
@@ -29,7 +29,7 @@ dependencies {
 }
 ```
 
-####3-2. Add "io.github.kobylynskyi.graphql.codegen" plugin to plugin block
+#### 3-2. Add "io.github.kobylynskyi.graphql.codegen" plugin to plugin block
 ```groovy
 plugins {
 	id 'java'
