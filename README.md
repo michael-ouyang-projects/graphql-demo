@@ -29,13 +29,25 @@ dependencies {
 }
 ```
 
-#### 3-2. Add "io.github.kobylynskyi.graphql.codegen" plugin to plugin block
+#### 3-2. Add [graphql java codegen plugin](https://github.com/kobylynskyi/graphql-java-codegen/tree/main/plugins/gradle) to plugin block
 ```groovy
 plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.1.1'
 	id 'io.spring.dependency-management' version '1.1.0'
 	id "io.github.kobylynskyi.graphql.codegen" version "5.7.2"
+}
+```
+
+#### 3-3. Set the [codegen options](https://github.com/kobylynskyi/graphql-java-codegen/blob/main/docs/codegen-options.md) for the graphqlCodegen task
+```groovy
+graphqlCodegen {
+    graphqlSchemas.rootDir = file("${projectDir}/src/main/resources/graphql").toString()
+    outputDir = file("${buildDir}/generated/graphql")
+    apiPackageName = 'fun.mouyang.interfaces.graphql.controller'
+    modelPackageName = 'fun.mouyang.interfaces.graphql.dto'
+    generateToString = true
+    generateEqualsAndHashCode = true
 }
 ```
 
