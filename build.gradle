@@ -1,0 +1,61 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.1.1'
+	id 'io.spring.dependency-management' version '1.1.0'
+	id "io.github.kobylynskyi.graphql.codegen" version "5.7.2"
+}
+
+group = 'fun.mouyang'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '17'
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	// spring
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-graphql'
+
+	// lombok
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+
+	// test
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.graphql:spring-graphql-test'
+}
+
+graphqlCodegen {
+	graphqlSchemas.rootDir = file("${projectDir}/src/main/resources/graphql").toString()
+	outputDir = file("${buildDir}/generated/graphql")
+	apiPackageName = 'fun.mouyang.interfaces.graphql.controller'
+	modelPackageName = 'fun.mouyang.interfaces.graphql.dto'
+	generateToString = true
+	generateEqualsAndHashCode = true
+}
+
+sourceSets {
+	main {
+		java {
+			srcDir 'src/main/java'
+			srcDir "${buildDir}/generated/graphql"
+		}
+	}
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+compileJava.dependsOn tasks.graphqlCodegen
