@@ -3,16 +3,16 @@ Describe how to generate GraphQL API interfaces using GraphQL schemas.
 
 ---
 
-##### 1. Create a new Spring Project using Spring Initializr
+### 1. Create a new Spring Project using Spring Initializr
 Provide the configuration in the below image.
 <img src="images/spring-initializr-config.png">
 
-##### 2. Create "GraphQL schemas" in /src/main/resources/graphql
-<img src="images/graphql-schemas.png" width=600>
+### 2. Create "GraphQL schemas" in /src/main/resources/graphql
+<img src="images/graphql-schemas.png" width=400>
 
 ---
-##### 3. Update build.gradle
-3-1. Adjust the dependencies block to make it more clear and readable
+### 3. Update build.gradle
+####3-1. Adjust the dependencies block to make it more clear and readable
 ```groovy
 dependencies {
     // spring
@@ -29,7 +29,7 @@ dependencies {
 }
 ```
 
-3-2. Add "io.github.kobylynskyi.graphql.codegen" plugin to plugin block
+####3-2. Add "io.github.kobylynskyi.graphql.codegen" plugin to plugin block
 ```groovy
 plugins {
 	id 'java'
