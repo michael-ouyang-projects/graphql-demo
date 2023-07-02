@@ -77,6 +77,7 @@ compileJava.dependsOn tasks.graphqlCodegen
 ---
 
 ## 5. Enable graphiql for interactively exploring the GraphQL API
+You can open the browser and navigate to [localhost](http://localhost:8080/graphiql?path=/graphql) to execute some requests after starting the application.
 ```properties
 # GraphQL
 spring.graphql.graphiql.enabled = true
