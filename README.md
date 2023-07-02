@@ -84,3 +84,4 @@ spring.graphql.graphiql.enabled = true
 spring.graphql.graphiql.path = /graphiql
 spring.graphql.schema.locations = classpath:graphql
 ```
+<img src="images/graphiql.png">
